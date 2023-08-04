@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { toast } from 'react-toastify'
 import key from '../config/token'
+import "./styles/home.css"
+import Artist from './artist'
 
 const URL = 'https://api.spotify.com'
 
@@ -48,11 +50,28 @@ function Home(props) {
 
     return (
         <section id="home-banner">
-            <div className="container">
+            <div className="container d-flex align-items-center justify-content-center">
                 <div className="row">
                     <div className="col-md-12 text-center">
-                        <h1 className="display-1 text-success">MUSIC</h1>
+                        <h1 className="display-1 text-light">MUSIC</h1>
                     </div>
+                </div>
+            </div>
+
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <h4 className="display-4 text-center text-success mt-4 mb-3">Artists</h4>
+                    </div>
+                </div>
+                <div className="row">
+                    {
+                        artist && artist.map((item,index) => {
+                            return (
+                                <Artist key={index} {...item} />
+                            )
+                        })
+                    }
                 </div>
             </div>
         </section>

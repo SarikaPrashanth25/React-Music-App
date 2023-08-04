@@ -1,0 +1,11 @@
+.card {
+    height: 240px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease-in;
+}
+
+.card:hover {
+    transform: translateY();
+}
